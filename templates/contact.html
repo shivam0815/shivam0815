@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{%block title%}contact{%endblock title%}
+{%block body%}
+<div class="container-fluid px-0 mb-3">
+  <img src="https://source.unsplash.com/1200x400/?contact,phone" class="d-block w-100 mx-0" alt"">
+</div>
+<div class="container mb-3 py-4">
+  <h1 class="text-center">CONTACT US</h1>
+
+  <form method="post" action="/contact" >
+    {%csrf_token %}
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
+  </div>
+
+
+  <div class="form-group">
+    <label for="exampleFormControl">email</label>
+    <input type="email" class="form-control" id="exampleFormControl" name="email" placeholder="email@.com">
+  </div>
+
+
+  <div class="form-group">
+    <label for="phone">phone number</label>
+    <input type="number" class="form-control" id="phone" name="phone" placeholder="1234567890">
+  </div>
+
+
+  <div class="mb-3">
+    <label for="desc">tell me about why you are contacting me</label>
+    <textarea class="form-control" id="desc" rows="3" name="desc"></textarea>
+  </div>
+
+  <button class="btn btn-primary" type="submit">submit</button>
+  </form>
+</div>
+
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
+</script>
+
+{%endblock body%}
